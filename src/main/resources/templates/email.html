@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Reset Request</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .email-header {
+            background-color: #007BFF;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+
+        .email-header h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .email-content {
+            padding: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        .email-content h2 {
+            color: #333;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .email-content p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .reset-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background-color: #28a745;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .reset-button:hover {
+            background-color: #218838;
+        }
+
+        .email-footer {
+            padding: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            border-top: 1px solid #ddd;
+            margin-top: 20px;
+        }
+
+        .email-footer a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .email-footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 600px) {
+            .email-container {
+                padding: 10px;
+            }
+
+            .reset-button {
+                padding: 14px 24px;
+                font-size: 18px;
+            }
+
+            .email-header h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="email-container">
+    <!-- Email Header -->
+    <div class="email-header">
+        <h1>Password Reset Request</h1>
+    </div>
+
+    <!-- Email Content -->
+    <div class="email-content">
+        <h2>Hello,</h2>
+        <p>You recently requested to reset your password. Please click the button below to reset it:</p>
+        <a th:href="@{${resetUrl}}" class="reset-button">Reset Your Password</a>
+        <p>If you didn’t request this, please ignore this email.</p>
+    </div>
+
+    <!-- Email Footer -->
+    <div class="email-footer">
+        <p>Thank you, <br> Arjun's World </p>
+        <p><a href="#">Contact Us</a> | <a href="#">Privacy Policy</a></p>
+    </div>
+</div>
+</body>
+</html>
