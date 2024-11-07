@@ -55,4 +55,10 @@ public class CustomerService {
         return false;
     }
 
+    public Customer getCustomerById(Long id){
+        Optional<Customer> customerById = customerRepository.findById(id);
+        if (customerById.isPresent())
+            return customerById.get();
+        return null;
+    }
 }

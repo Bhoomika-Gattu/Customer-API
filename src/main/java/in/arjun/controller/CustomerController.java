@@ -36,10 +36,7 @@ public class CustomerController {
         String email = loginRequest.getEmail();
         String password = loginRequest.getPassword();
         Optional<Customer> customerByEmailAndPassword = customerService.getCustomerByEmailAndPassword(email, password);
-        if (customerByEmailAndPassword.isPresent()){
-            return customerByEmailAndPassword.get();
-        }
-        return null;
+        return customerByEmailAndPassword.orElse(null);
     }
 
     @PostMapping("/find-email/{email}")
@@ -67,5 +64,10 @@ public class CustomerController {
             return true;
         return false;
 
+    }
+
+    @GetMapping("/customer/{id}")
+    public Customer findCustomerById(@PathVariable Long id){
+       return customerService.getCustomerById(id);
     }
 }
